@@ -7,6 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('standings');
+  this.route('roster');
+  this.route('players');
+  this.route('home');
+  this.route('login');
 });
 
 export default Router;

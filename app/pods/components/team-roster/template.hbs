@@ -1,0 +1,22 @@
+<h2>Roster</h2>
+
+{{drop-down selected=weekSelected options=weeks}}
+
+<table>
+	<tr>
+		<th> Position </th>
+		<th> Player </th>
+		<th> School </th>
+		<th> Opponent </th>
+		<th> Eligible for Points </th>
+	</tr>
+	{{#each rosterPlayers as |player|}}
+		<tr>
+			<td>{{player.position}}</td>
+			<td>{{player.name}}</td>
+			<td>{{player.school}}</td>
+			<td>{{player.oppoonent}}</td>
+			<td>{{player.pointsElig}}</td>
+		</tr>
+	{{/each}}
+</table>

@@ -1,0 +1,16 @@
+{{#basic-dropdown as |dd|}}
+    {{#dd.trigger class="default-dropdown"}}
+        {{#if selected}}
+            {{selected}}
+        {{else}}
+            -- Select --
+        {{/if}}
+        <span class="caret"></span>
+    {{/dd.trigger}}
+
+    {{#dd.content class="default-dropdown-content"}}
+        {{#each options as |opt|}}
+            <p {{action 'optSelected' opt dd}}>{{opt}}</p>
+        {{/each}}
+    {{/dd.content}}
+{{/basic-dropdown}}

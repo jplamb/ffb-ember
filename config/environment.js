@@ -3,6 +3,10 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ffb',
+    podModulePrefix: 'ffb/pods',
+    contentSecurityPolicy: {
+      'connect-src' : "'self' http://localhost:4500"
+    }
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

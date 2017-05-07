@@ -1,0 +1,35 @@
+<h2>Standings</h2>
+
+<div>Overall Standings</div>
+<table class="standings-table">
+  <tr class="standings-row">
+    <th>Position</th>
+    <th>Team</th>
+    <th>Points</th>
+  </tr>
+  {{#each weeklyResults as |team|}}
+    <tr class="standings-row">
+      <td>{{team.place}}</td>
+      <td>{{team.name}}</td>
+      <td>{{team.points}}</td>
+    </tr>
+  {{/each}}
+</table>
+
+<br>
+<div>Weekly Results</div>
+{{drop-down options=weeks selected=weekSelected}}
+<table class="standings-table">
+	<tr class="standings-row">
+		<th>Position</th>
+		<th>Team</th>
+		<th>Points</th>
+	</tr>
+	{{#each weeklyResults as |team|}}
+		<tr class="standings-row">
+			<td>{{team.place}}</td>
+			<td>{{team.name}}</td>
+			<td>{{team.points}}</td>
+		</tr>
+	{{/each}}
+</table>
