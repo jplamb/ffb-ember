@@ -1,0 +1,17 @@
+{
+  "name": "ffb",
+  "description": "Small description for ffb goes here",
+  "main": "",
+  "authors": [
+    "John Lamb <j.lamb13@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jplamb/ffb-ember",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -4,8 +4,8 @@ const { attr, hasMany } = DS;
 
 export default DS.Model.extend({
 	name: attr('string'),
-	school: attr('string'),
+	team: attr('string'),
 	position: attr('string'),
-	
+	url: attr('string'),
 	//comments: hasMany('comment')
 });

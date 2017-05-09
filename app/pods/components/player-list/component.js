@@ -4,13 +4,19 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	store: Ember.inject.service('store'),
+	dropVis: false,
 
-  dropVis: false,
-
-  actions: {
-    weekSelected() {
-      this.set('dropVis', true);
-      console.log('hello');
-    }
-  }
+	init() {
+		this._super(...arguments);
+		this.get('store').findAll('player').then(data => {
+			this.set('players', data);
+		});
+	},
+	actions: {
+		weekSelected() {
+			this.set('dropVis', true);
+			console.log('hello');
+		}
+	}
 });
