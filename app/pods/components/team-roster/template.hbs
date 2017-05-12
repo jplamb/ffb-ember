@@ -1,22 +1,30 @@
-<h2>Roster</h2>
-
+<h2 class="header">Roster</h2>
 {{drop-down selected=weekSelected options=weeks}}
-
-<table>
-	<tr>
-		<th> Position </th>
-		<th> Player </th>
-		<th> School </th>
-		<th> Opponent </th>
-		<th> Eligible for Points </th>
-	</tr>
-	{{#each rosterPlayers as |player|}}
+<table class="striped responsive-table highlight centered">
+	<thead>
 		<tr>
-			<td>{{player.position}}</td>
-			<td>{{player.name}}</td>
-			<td>{{player.school}}</td>
-			<td>{{player.oppoonent}}</td>
-			<td>{{player.pointsElig}}</td>
+			<th> Position </th>
+			<th> Player </th>
+			<th> School </th>
+			<th> Opponent </th>
+			<th> Starting </th>
+			<th> Eligible for Points </th>
 		</tr>
-	{{/each}}
+	</thead>
+	<tbody>
+		{{#if players.isFulfilled}}
+			{{#each rosterPlayers as |player|}}
+				<tr>
+					<td>{{player.pos}}</td>
+					<td>{{player.player_name}}</td>
+					<td>{{player.team}}</td>
+					<td>{{player.opp}}</td>
+					<td>{{player.is_starting}}</td>
+					<td>{{player.points_elig}}</td>
+				</tr>
+			{{/each}}
+		{{else}}
+			{{loading-spinner}}
+		{{/if}}
+	</tbody>
 </table>

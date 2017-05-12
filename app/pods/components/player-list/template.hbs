@@ -1,4 +1,30 @@
-<h2>Players</h2>
-{{#each players as |player|}}
-	{{player.name}}
-{{/each}}
+<h3 class="header">Players</h3>
+{{#if players.isFulfilled}}
+	<div class="row">
+	<div class="card-panel col s3">
+		<label for="filter">Filter</label>
+		{{input id='filter' placeholder='Filter players' value=filterText}}
+	</div>
+	</div>
+	<table class="striped responsive-table highlight centered">
+		<thead>
+			<tr>
+				<th {{action 'sortBy' 'position'}}> Position </th>
+				<th {{action 'sortBy' 'player'}}> Player </th>
+				<th {{action 'sortBy' 'school'}}> School </th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each sortedPlayers as |player|}}
+				<tr>
+					<td>{{player.position}}</td>
+					<td>{{player.name}}</td>
+					<td>{{player.team}}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+{{else}}
+	{{loading-spinner}}
+{{/if}}
+

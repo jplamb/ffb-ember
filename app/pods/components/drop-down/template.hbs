@@ -1,5 +1,5 @@
-{{#basic-dropdown as |dd|}}
-    {{#dd.trigger class="default-dropdown"}}
+{{#basic-dropdown renderInPlace=true as |dd|}}
+    {{#dd.trigger class="waves-effect waves-light btn blue darken-2"}}
         {{#if selected}}
             {{selected}}
         {{else}}
@@ -8,9 +8,11 @@
         <span class="caret"></span>
     {{/dd.trigger}}
 
-    {{#dd.content class="default-dropdown-content"}}
+    {{#dd.content}}
+	    <ul class="collection">
         {{#each options as |opt|}}
-            <p {{action 'optSelected' opt dd}}>{{opt}}</p>
+            <li class="collection-item" {{action 'optSelected' opt dd}}>{{opt}}</li>
         {{/each}}
+	    </ul>
     {{/dd.content}}
 {{/basic-dropdown}}

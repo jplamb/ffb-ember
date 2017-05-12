@@ -5,13 +5,16 @@ export default Ember.Component.extend({
 
 	actions: {
 		authenticate(username, password) {
-			console.log('authenticating login');
-			this.get('session').authenticate('authenticator:oauth2', username, password).catch((reason) => {
-				this.set('errorMessage', reason.error || reason);
-			});
-		},
-		invalidateSession() {
-			this.get('session').invalidate();
+			this.get('session').authenticate('authenticator:oauth2', username, password)
+				.then(data => {
+					if (username === data.get('username') && password === data.get('password')) {
+						this.get('session').setAuth(true);
+					} else {
+						this.get('session').setAuth(false);
+					}
+				}).catch(error => {
+					this.get('session').setAuth(false);
+				});
 		}
 	}
 });

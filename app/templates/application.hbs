@@ -1,15 +1,35 @@
-<h1>Fantasy Football</h1>
-<div>
-  <a href="home">Home</a>
-  <a href="roster">Roster</a>
-  <a href="players">Players</a>
-  <a href="standings">Standings</a>
+<div class="narbar-fixed">
+	<nav class="nav-extended blue darken-2">
+		<div class="nav-wrapper">
+			<a href="home" class="brand-logo"> Fantasy College Football</a>
+			<a href="home" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				{{#if session.isAuthenticated}}
+					<li><a {{action 'invalidateSession'}}> Logout </a></li>
+				{{else}}
+					{{#link-to 'login'}} Login {{/link-to}}
+				{{/if}}
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				{{#if session.isAuthenticated}}
+					<li><a {{action 'invalidateSession'}}> Logout </a></li>
+				{{else}}
+					{{#link-to 'login'}} Login {{/link-to}}
+				{{/if}}
+			</ul>
+		</div>
+		<div class="nav-content">
+			<ul class="tabs blue darken-2">
+				<li class="tab"><a href="roster" class="{{if (eq tab 'roster') 'active'}} white-text">Roster</a></li>
+				<li class="tab"><a href="players" class="{{if (eq tab 'players') 'active'}} white-text">Players</a></li>
+				<li class="tab"><a href="standings" class="white-text">Standings</a></li>
+			</ul>
+		</div>
+	</nav>
 </div>
-<div class="login">
-	{{#if session.isAuthenticated}}
-		<a {{action 'invalidateSession'}}> Logout </a>
-	{{else}}
-		{{#link-to 'login'}} Login {{/link-to}}
-	{{/if}}
+
+<br><br>
+
+<div class="container">
+	{{outlet}}
 </div>
-{{outlet}}
