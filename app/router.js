@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('standings');
   this.route('roster');
   this.route('players');
-  this.route('home');
+  this.route('home', {path: ['/', '/home']});
   this.route('login');
 });
 

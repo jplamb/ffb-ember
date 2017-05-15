@@ -11,8 +11,8 @@ export default DS.Model.extend({
 	player_name:	attr('string'),
 	pos:	attr('string'),
 	is_starting:	attr('string'),
-	points_elig:	attr('number'),
+	points_elig:	attr('string'),
 	points:	attr('number'),
-	team:	attr('number'),
-	opp:	attr('number'),
+	team:	attr('string'),
+	opp:	attr('string'),
 });

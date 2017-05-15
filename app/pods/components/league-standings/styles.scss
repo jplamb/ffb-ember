@@ -1,0 +1,5 @@
+.standings-table {
+  tr {
+    counter-increment: rowNumber;
+  }
+}

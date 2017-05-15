@@ -5,6 +5,7 @@
 			<a href="home" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				{{#if session.isAuthenticated}}
+					<li>Hi, {{session.currentUser.username}}</li>
 					<li><a {{action 'invalidateSession'}}> Logout </a></li>
 				{{else}}
 					{{#link-to 'login'}} Login {{/link-to}}
@@ -12,6 +13,7 @@
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
 				{{#if session.isAuthenticated}}
+					<li>Hi, {{get session.currentUser 'username'}}</li>
 					<li><a {{action 'invalidateSession'}}> Logout </a></li>
 				{{else}}
 					{{#link-to 'login'}} Login {{/link-to}}

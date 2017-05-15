@@ -3,11 +3,20 @@
  */
 import Ember from 'ember';
 
+//TODO: the account table or roster table needs to be updated to use this
+const UserMap = {
+	1: 'Team John L'
+};
+
 export default Ember.Component.extend({
 	store: Ember.inject.service(),
+	session: Ember.inject.service(),
+
 	weeks: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10'],
 	weekSelected: null,
-	user: 'Team John L',
+	user: Ember.computed('session.currentUser', function() {
+		return UserMap[this.get('session.currentUser.user_id')];
+	}),
 
 	init() {
 		this._super(...arguments);

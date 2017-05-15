@@ -8,6 +8,7 @@ export default DS.Model.extend({
 	total_points:	 attr('number'),
 	is_starting:	 attr('string'),
 	points_elig:	 attr('string'),
-	fant_team:	 attr('string')
+	fant_team:	 attr('string'),
+	week:   attr('number')
 });
 
