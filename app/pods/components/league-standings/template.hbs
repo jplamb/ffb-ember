@@ -1,4 +1,5 @@
-<h2>Standings</h2>
+<h3>Standings</h3>
+<div>Overall Standings</div>
 <table class="standings-table">
 	<tr class="standings-row">
 		<th>Place</th>
@@ -13,23 +14,24 @@
 		</tr>
 	{{/each}}
 </table>
-<div>Overall Standings</div>
+
+<br>
+{{drop-down options=weeks selected=weekSelected}}
+
+<div>Weekly Results</div>
 <table class="standings-table">
   <tr class="standings-row">
-    <th>Position</th>
+    <th>Place</th>
     <th>Team</th>
     <th>Points</th>
   </tr>
-  {{#each rawStandings as |team|}}
+  {{#each weekStandings as |team index|}}
     <tr class="standings-row">
-      <td>{{team}}</td>
-      <td>{{team}}</td>
-      <td>{{team}}</td>
+      <td>{{sum index 1}}</td>
+      <td>{{team.[0]}}</td>
+      <td>{{team.[1]}}</td>
     </tr>
   {{/each}}
 </table>
 
-<br>
-<div>Weekly Results</div>
-{{drop-down options=weeks selected=weekSelected}}
 
